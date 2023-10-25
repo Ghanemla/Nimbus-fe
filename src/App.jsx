@@ -1,10 +1,17 @@
-import Register from "./components/Register";
+import axios from "axios";
+
+import { UserContextProvider } from "./UserContext";
+
+import Routes from "./Routes";
 
 function App() {
+  axios.defaults.baseURL = "http://localhost:9000";
+  axios.defaults.withCredentials = true;
+
   return (
-    <>
-      <Register />
-    </>
+    <UserContextProvider>
+      <Routes />
+    </UserContextProvider>
   );
 }
 
