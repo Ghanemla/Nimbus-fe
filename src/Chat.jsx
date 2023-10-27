@@ -43,7 +43,9 @@ export default function Chat() {
     if ("online" in messageData) {
       showOnlinePeople(messageData.online);
     } else if ("text" in messageData) {
-      setMessages((prev) => [...prev, { isOur: false, ...messageData }]);
+      if (messageData.sender === selectedUserId) {
+        setMessages((prev) => [...prev, { isOur: false, ...messageData }]);
+      }
     }
   }
   function logout() {

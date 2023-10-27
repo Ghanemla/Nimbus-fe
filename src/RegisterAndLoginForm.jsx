@@ -6,7 +6,7 @@ export default function RegisterAndLoginForm() {
   const [username, setUsername] = useState("");
   2;
   const [password, setPassword] = useState("");
-  const [isLoginOrRegister, setIsLoginOrRegister] = useState("register");
+  const [isLoginOrRegister, setIsLoginOrRegister] = useState("login");
 
   const { setUsername: setLoggedInUsername, setId } = useContext(UserContext);
 
@@ -44,7 +44,10 @@ export default function RegisterAndLoginForm() {
         {isLoginOrRegister === "register" && (
           <div className="text-center mt-2">
             Already got an Account{" "}
-            <button onClick={() => setIsLoginOrRegister("login")}>
+            <button
+              className="ml-1"
+              onClick={() => setIsLoginOrRegister("login")}
+            >
               {" "}
               Login here
             </button>
@@ -53,7 +56,10 @@ export default function RegisterAndLoginForm() {
         {isLoginOrRegister === "login" && (
           <div className="text-center mt-2">
             New to Nimbus?{" "}
-            <button onClick={() => setIsLoginOrRegister("register")}>
+            <button
+              className="ml-1"
+              onClick={() => setIsLoginOrRegister("register")}
+            >
               {" "}
               Register here
             </button>
